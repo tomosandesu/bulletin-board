@@ -28,5 +28,8 @@
                 </div>
             </div>
         @endforeach
+        <div class="mb-4">
+            {{ $posts->link() }}
+        </div>
     </div>
 </x-app-layout>
