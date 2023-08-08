@@ -24,13 +24,13 @@ class PostController extends Controller
         ]);
         $validated['user_id'] = auth()->id();
         $post = POST::create($validated);
-        return back();
+        $request->session()->flash('message', '新規作成完了しました');
+        return redirect()->route('post.index');
     }
     public function index(){
         // $posts=POST::all();
         $posts = Post::paginate(10);
         return view('posts.index', compact('posts'));
-
     }
 
     public function show(Post $post){
